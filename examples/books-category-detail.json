@@ -1,0 +1,11 @@
+{
+  "name": "Books to Scrape: category -> book detail",
+  "description": "Every book of a books.toscrape.com category page, then each book's detail page (title, price, UPC, stock, description).",
+  "input_urls": ["https://books.toscrape.com/catalogue/category/books/travel_2/index.html"],
+  "steps": [
+    { "extractor_id": "@your-username/books-toscrape-list@1", "url_output_field": "books[].url" },
+    { "extractor_id": "@your-username/books-toscrape-detail@1" }
+  ],
+  "output": { "format": "json" },
+  "limits": { "maxCostPerRun": 0.5, "retentionDays": 7 }
+}

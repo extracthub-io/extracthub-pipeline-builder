@@ -1,0 +1,16 @@
+{
+  "name": "DummyJSON: product list -> product detail",
+  "description": "Product ids from the DummyJSON list endpoint, then each product's detail endpoint built from the id.",
+  "input_urls": ["https://dummyjson.com/products?limit=10"],
+  "steps": [
+    {
+      "extractor_id": "@your-username/dummyjson-products@1",
+      "url_output_field": "products[].id",
+      "url_template": "https://dummyjson.com/products/{value}"
+    },
+    { "extractor_id": "@your-username/dummyjson-product-detail@1" }
+  ],
+  "output": { "format": "json" },
+  "limits": { "maxCostPerRun": 0.5 },
+  "schedule": { "cronExpression": "0 6 * * *", "timezone": "UTC" }
+}
